@@ -1,0 +1,2 @@
+Number of circles in image: 1
+Center: (142.5,202.5) Radius: 17.9

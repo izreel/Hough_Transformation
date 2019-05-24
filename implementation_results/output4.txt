@@ -1,0 +1,4 @@
+Number of circles in image: 6
+Center: (126,199) Radius: 18
+Center: (49,126) Radius: 14
+Center: (161,108) Radius: 17

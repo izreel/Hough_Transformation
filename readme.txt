@@ -1,0 +1,2 @@
+An implementation of Hough Transformation for circles. Outputs image with located circles, a text file with location of cetner and redius for each circle detected, and accumulator image.
+Tested using the 4 test images and can also be compared with OpenCV's implementation through the results and locations of circles detected.

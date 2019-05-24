@@ -1,0 +1,5 @@
+Number of circles in image: 4
+Center: (126.5,199.5) Radius: 18.0
+Center: (137.5,306.5) Radius: 18.0
+Center: (49.5,125.5) Radius: 14.6
+Center: (160.5,108.5) Radius: 17.4
