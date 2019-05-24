@@ -27,7 +27,7 @@ def builtin_transform(image, output_name):
 
     circles = cv2.HoughCircles(image=image, method=cv2.HOUGH_GRADIENT, dp=1, minDist=20,
                                param1=200, param2=10, minRadius=10, maxRadius=80)
-    output_file = open('task1\output' + output_name + '.txt', 'w')
+    output_file = open('opencv_results\output' + output_name + '.txt', 'w')
 
     if circles is not None:
         output_file.write("Number of circles in image: " + str(circles.shape[1]) + '\n')
@@ -41,7 +41,7 @@ def builtin_transform(image, output_name):
             cv2.circle(image, (i[0], i[1]), 2, (0, 0, 255), 3)
             output_file.write('Center: (' + str(i[1]) + ',' + str(i[0]) + ')' + ' Radius: ' + str(i[2]) + '\n')
 
-    cv2.imwrite('task1\output_image' +  output_name + '.jpg', image)
+    cv2.imwrite('opencv_results\output_image' +  output_name + '.jpg', image)
 
 
 def distance(a, b):
@@ -92,7 +92,7 @@ def hough_transformation(image, output_name):
                 unique_circles[1].append(sorted_circles[i][1])
                 unique_circles[2].append(sorted_circles[i][2])
 
-        output_file = open('task2\output'+ output_name + '.txt', 'w')
+        output_file = open('implementation_results\output'+ output_name + '.txt', 'w')
         output_file.write("Number of circles in image: " + str(len(unique_circles[1])) + '\n')
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
@@ -106,8 +106,8 @@ def hough_transformation(image, output_name):
         #creating images for accumulator arrays
         for i in range(len(unique_circles)):
 
-            cv2.imwrite('task2\output_accumulator_' + output_name + '_' + str(unique_circles[2][i]) + '.jpg', H[:, :, unique_circles[2][i]])
-    cv2.imwrite('task2\output'+ output_name + '.jpg', image)
+            cv2.imwrite('implementation_results\output_accumulator_' + output_name + '_' + str(unique_circles[2][i]) + '.jpg', H[:, :, unique_circles[2][i]])
+    cv2.imwrite('implementation_results\output'+ output_name + '.jpg', image)
 
 
 main()
