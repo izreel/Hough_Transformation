@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
-'''
-https://docs.opencv.org/3.0-beta/modules/imgproc/doc/feature_detection.html#houghcircles
-
-'''
+import opencv_hough
 
 def main():
     from argparse import ArgumentParser
@@ -17,31 +14,12 @@ def main():
 
     if '.jpg' in args.image:
         part_output_name = args.image[len(args.image) - 5]
+        
         #built in hough transform from OpenCV
-        builtin_transform(input_image, part_output_name)
+        opencv_hough.hough_transform(input_image, part_output_name)
+        
         #self implemented hough trasformation
-        hough_transformation(input_image, part_output_name)
-
-
-def builtin_transform(image, output_name):
-
-    circles = cv2.HoughCircles(image=image, method=cv2.HOUGH_GRADIENT, dp=1, minDist=20,
-                               param1=200, param2=10, minRadius=10, maxRadius=80)
-    output_file = open('opencv_results\output' + output_name + '.txt', 'w')
-
-    if circles is not None:
-        output_file.write("Number of circles in image: " + str(circles.shape[1]) + '\n')
-        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-        #taken from example in link in the comments above
-        #similar approach used for task 2 implementation
-        for i in circles[0, :]:
-            # draw the outer circle
-            cv2.circle(image, (i[0], i[1]), i[2], (0, 255, 0), 2)
-            # draw the center of the circle
-            cv2.circle(image, (i[0], i[1]), 2, (0, 0, 255), 3)
-            output_file.write('Center: (' + str(i[1]) + ',' + str(i[0]) + ')' + ' Radius: ' + str(i[2]) + '\n')
-
-    cv2.imwrite('opencv_results\output_image' +  output_name + '.jpg', image)
+        #hough_transformation(input_image, part_output_name)
 
 
 def distance(a, b):
