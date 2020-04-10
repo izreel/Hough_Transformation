@@ -20,6 +20,6 @@ def main():
         #opencv_hough.hough_transform(input_image, part_output_name)
         
         #self implemented hough trasformation
-        custom_hough.hough_transformation(input_image, part_output_name)
+        #custom_hough.hough_transformation(input_image, part_output_name)
 
 main()
